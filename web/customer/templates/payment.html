@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="header">
+    <div class="menu_btn">
+        <div style="width:80%; margin-left:10%;">
+        <p class="h4 mb-4" style="text-align:center; margin-top:2%; font-size:40px;">루캣</p>
+        </div>
+        <a href="#">
+            <img class="munu_img"  src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+">
+        </a>
+    </div>
+</div>
+<div class="payment_money_div" style="margin-left:10%;">
+    <h3>잔액: <strong>{{user.money}}</strong>원</h3>
+    <h3>총 결제 금액: <strong>{{pay_sum}}</strong>원</h3>
+</div>
+<div class="payment_pay_div">
+    <h3 style="margin-left:10%;">구매내역</h3>
+</div>
+<div class="table-responsive" style="width:100%">
+    <table class="table table-striped table-hover table-bordered table-condensed"style="width:80%; margin-left:auto;margin-right:auto;">
+        <thead style="width:100%;">
+            <tr>
+                <th style="width:20%;">
+                    상품명
+                </th>
+                <th style="width:10%;">
+                    수량
+                </th>
+                <th style="width:10%;">
+                    가격
+                </th>
+                <th>
+                    날짜
+                </th>
+            </tr>
+        </thead>
+        {% for p in pay %}
+        <tbody>
+            <tr>
+                <td>
+                    {{p.product_id.k_name}}
+                </td>
+                <td>
+                    {{p.quant}}
+                </td>
+                <td>
+                    {{p.product_id.price}}
+                </td>
+                <td>
+                    {{p.date_time}}
+                </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="menu_bg">
+
+</div>
+<div class="sidebar_menu">
+    <div class="close_btn">
+        <a href="#">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">
+        </a>
+    </div>
+    <ul class="menu_wrap">
+        <p class="h6 mb-6" style="color:white;">{{user.name}}님 환영합니다.</p>
+        <li><a href="/logout">로그아웃</a></li>
+        <li><a href="/customer/home">홈</a></li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

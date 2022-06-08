@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="header">
+    <div class="menu_btn">
+        <div style="width:80%; margin-left:10%;">
+        <p class="h4 mb-4" style="text-align:center; margin-top:2%; font-size:40px">루캣</p>
+        </div>
+        <a href="#">
+            <img class="munu_img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjQgNmgtMjR2LTRoMjR2NHptMCA0aC0yNHY0aDI0di00em0wIDhoLTI0djRoMjR2LTR6Ii8+PC9zdmc+">
+        </a>
+    </div>
+</div>
+    <div style="text-align:center;">
+        <h4 class="shopping_h4">{{user.name}}님 쇼핑을 시작했습니다.</h4>
+    </div>
+</div>
+<div class="menu_bg">
+
+</div>
+<div class="sidebar_menu">
+    <div class="close_btn">
+        <a href="#">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjMuOTU0IDIxLjAzbC05LjE4NC05LjA5NSA5LjA5Mi05LjE3NC0yLjgzMi0yLjgwNy05LjA5IDkuMTc5LTkuMTc2LTkuMDg4LTIuODEgMi44MSA5LjE4NiA5LjEwNS05LjA5NSA5LjE4NCAyLjgxIDIuODEgOS4xMTItOS4xOTIgOS4xOCA5LjF6Ii8+PC9zdmc+">
+        </a>
+    </div>
+    <ul class="menu_wrap">
+        <p class="h6 mb-6" style="color:white;">{{user.name}}님 환영합니다.</p>
+        <li><a href="/customer/home">홈</a></li>
+        <li><a href="/logout">로그아웃</a></li>
+        <li><a href="/customer/payment">구매내역</a></li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

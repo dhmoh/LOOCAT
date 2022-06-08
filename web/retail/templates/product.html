@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<div style="width:100%;">
+    <div class="header" style=" margin-top:3%;">
+        <div class="menu_btn">
+            <div style="width:80%; margin-left:10%;">
+                <p style="text-align:center; font-size:40px;">루캣</p>
+            </div>
+            <div style="margin-top:-6%; margin-right:2%;">
+                {{user.name}} 관리자님
+                <a href="/logout">로그아웃</a>
+            </div>
+        </div>
+    </div>
+    <div class="table-responsive" style="margin-top:3%; width:100%">
+        <table class="table table-striped table-hover table-bordered table-condensed"style="width:80%; margin-left:auto;margin-right:auto;">
+            <thead style="width:100%;">
+                <tr>
+                    <th style="width:20%;">
+                       상품명
+                    </th>
+                    <th style="width:10%;">
+                        가격
+                    </th>
+                    <th style="width:10%;">
+                        수량
+                    </th>
+                    <th>
+                        정보
+                    </th>
+                </tr>
+            </thead>
+            {% for p in product %}
+            <tbody>
+                <tr>
+                    <td>
+                        {{ p.k_name }}
+                    </td>
+                    <td>
+                        {{ p.price }}
+                    </td>
+                    <td>
+                        {{ p.quant }}
+                    </td>
+                    <td>
+                        {{ p.info }}
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="margin-left:10%; margin-top:3%;">
+        <details>
+            <summary>제품 추가하기</summary>
+            <form method="POST" style="max-width:500px; margin:4rem;">
+                {% csrf_token %}
+                {% bootstrap_form productform %}
+                <input type="submit" class="btn btn-primary rounded-pill col-12" value="추가">
+            </form>
+        </details>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}
