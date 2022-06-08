@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="row justify-content-center" style="">
+    <div class="text-center border border-light p-5">
+        <p class="h1 mb-1">루캣</p>
+        {% if error %}
+            <br>
+            <p style="color:red;">{{error}}</p>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <br>
+            <input name="email" type="text" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+            <br>
+            <input name="password" type="password" id="inputPassword1" class="form-control"
+                       placeholder="Password" required>
+            <br>
+            <button type="submit" class="btn btn-primary btn-block" >Login</button>
+        </form>
+        <br>
+        <a href="register">회원가입</a>
+    </div>
+</div>
+{% endblock %}

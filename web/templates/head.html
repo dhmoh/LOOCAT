@@ -1,0 +1,135 @@
+{% load static %}
+<head>
+  <title>ByVision</title>
+  <!-- css -->
+<!--  <link rel="stylesheet" href="{% static 'css/main.css' %}">-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('.menu_btn>a').on('click', function(){
+            $('.menu_bg').show();
+            $('.sidebar_menu').show().animate({
+                right:0
+            });
+        });
+        $('.close_btn>a').on('click', function(){
+            $('.menu_bg').hide();
+            $('.sidebar_menu').animate({
+                right: '-' + 50 + '%'
+                       },function(){
+$('.sidebar_menu').hide();
+});
+        });
+
+    });
+  </script>
+  <style>
+  .munu_img {margin-top:-9%}
+  @media (max-width: 768px){
+    .munu_img {margin-top:-20%}
+  }
+  @media (max-width: 426px){
+    .munu_img {margin-top:-40%}
+  }
+
+  .shopping_h4 {margin-top:10%}
+  @media (max-width: 768px){
+    .shopping_h4 {margin-top:20%}
+  }
+  @media (max-width: 426px){
+    .shopping_h4 {margin-top:25%}
+  }
+
+  .payment_money_div {
+    margin-top:3%;
+  }
+  @media (max-width: 768px){
+    .payment_money_div {
+      margin-top:10%;
+      }
+  }
+  @media (max-width: 768px){
+    .payment_money_div h3 {
+      font-size:1.4rem;
+      }
+  }
+
+  .payment_pay_div{
+    margin-top:3%;
+  }
+
+  @media (max-width: 768px){
+    .payment_pay_div{
+      margin-top:10%;
+    }
+  }
+
+  @media (max-width: 768px){
+    .payment_pay_div h3 {
+      font-size:1.4rem;
+      }
+  }
+  @media (max-width: 768px){
+    .table{
+        font-size:0.9rem;
+      }
+  }
+  @media (max-width: 426px){
+    .table{
+        font-size:0.8rem;
+      }
+  }
+
+    body, html{width:100%;height: 100%; overflow-x: hidden;}
+    .header{
+        width: 100%;
+        height: 50px;
+    }
+    .menu_btn{
+        text-align: right;
+        padding: 10px;
+    }
+    .menu_bg{
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        position: absolute;
+        top:0;
+        display: none;
+    }
+    .sidebar_menu{
+        display: none;
+        width: 50%;
+        height: 100%;
+        background: gray;
+        position: absolute;
+        top:0;
+        right: -50%;
+
+    }
+    .close_btn{
+        width: 25px;
+        height: 25px;
+        margin:10px;
+    }
+    .close_btn > a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .menu_wrap{
+        list-style: none;
+        padding: 20px 20px;
+    }
+    .menu_wrap li a{
+        color: #fff;
+        text-decoration: none;
+    }
+  </style>
+
+</head>
